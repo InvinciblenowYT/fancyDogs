@@ -1,14 +1,13 @@
 package ch.bbw.leoluca;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity (name = "dogs")
 public class Dogs {
     @Id
     private Long halter_id;
-    private int alter;
+    private String alter;
     private String geschlecht;
     private int stadtkreis;
     private int stadtquartier;
@@ -21,7 +20,7 @@ public class Dogs {
     private String geschlecht_hund;
     private String hundefarbe;
 
-    public Dogs(Long halter_id, int alter, String geschlecht, int stadtkreis, int stadtquartier, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
+    public Dogs(Long halter_id, String alter, String geschlecht, int stadtkreis, int stadtquartier, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
         this.halter_id = halter_id;
         this.alter = alter;
         this.geschlecht = geschlecht;
@@ -37,6 +36,10 @@ public class Dogs {
         this.hundefarbe = hundefarbe;
     }
 
+    public Dogs() {
+
+    }
+
     public Long getHalter_id() {
         return halter_id;
     }
@@ -45,11 +48,11 @@ public class Dogs {
         this.halter_id = halter_id;
     }
 
-    public int getAlter() {
+    public String getAlter() {
         return alter;
     }
 
-    public void setAlter(int alter) {
+    public void setAlter(String alter) {
         this.alter = alter;
     }
 
