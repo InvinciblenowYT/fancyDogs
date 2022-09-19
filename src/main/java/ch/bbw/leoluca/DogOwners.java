@@ -1,11 +1,19 @@
 package ch.bbw.leoluca;
 
+
+import org.hibernate.annotations.Generated;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity (name = "owners")
 public class DogOwners {
+    //Separate ID is needed because halter_id is not unique
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long halter_id;
     private String alter;
     private String geschlecht;

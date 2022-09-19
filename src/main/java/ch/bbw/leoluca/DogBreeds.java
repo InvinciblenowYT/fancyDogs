@@ -1,11 +1,15 @@
 package ch.bbw.leoluca;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "breeds")
 public class DogBreeds {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String rassen_typ;
     private String hunde_rasse;
 
@@ -17,7 +21,6 @@ public class DogBreeds {
     public DogBreeds() {
 
     }
-
 
     public String getRassen_typ() {
         return rassen_typ;
