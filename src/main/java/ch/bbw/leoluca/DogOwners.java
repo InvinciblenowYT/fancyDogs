@@ -3,8 +3,8 @@ package ch.bbw.leoluca;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity (name = "dogs")
-public class Dogs {
+@Entity (name = "owners")
+public class DogOwners {
     @Id
     private Long halter_id;
     private String alter;
@@ -20,7 +20,7 @@ public class Dogs {
     private String geschlecht_hund;
     private String hundefarbe;
 
-    public Dogs(Long halter_id, String alter, String geschlecht, int stadtkreis, int stadtquartier, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
+    public DogOwners(Long halter_id, String alter, String geschlecht, int stadtkreis, int stadtquartier, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
         this.halter_id = halter_id;
         this.alter = alter;
         this.geschlecht = geschlecht;
@@ -36,7 +36,7 @@ public class Dogs {
         this.hundefarbe = hundefarbe;
     }
 
-    public Dogs() {
+    public DogOwners() {
 
     }
 
