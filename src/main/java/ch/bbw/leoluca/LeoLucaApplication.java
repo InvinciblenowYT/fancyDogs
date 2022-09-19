@@ -15,7 +15,7 @@ public class LeoLucaApplication {
     }
 
     @Bean(initMethod = "start", destroyMethod = "stop")
-    public Server inMemoryH2DatabaseaServer() throws SQLException {
+    public Server inMemoryH2DatabaseServer() throws SQLException {
         // connectable on: jdbc:h2:tcp://localhost:9090/mem:mydb
         return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9090");
     }
