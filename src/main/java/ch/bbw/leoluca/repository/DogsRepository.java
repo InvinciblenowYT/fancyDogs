@@ -15,5 +15,8 @@ public interface DogsRepository extends JpaRepository<Dogs, Integer> {
 
     @Query("SELECT d FROM dogs d WHERE d.owners.geschlecht = :gender")
     List<Dogs> dogsByOwnerGender(@Param("gender") String gender);
+
+    @Query("SELECT d FROM dogs d WHERE d.geburtsjahr_hund <= :year")
+    List<Dogs> dogsBornBefore(@Param("year") Integer year);
 }
 

@@ -36,4 +36,9 @@ public class DogsController {
     List<Dogs> DogsByOwnerGender(@PathVariable("ownergender") String gender){
         return dogsRepository.dogsByOwnerGender(gender);
     }
+
+    @GetMapping("/dogs/bornbefore={year}")
+    List<Dogs> DogBornBefore(@PathVariable("year") String year){
+        return dogsRepository.dogsBornBefore(Integer.parseInt(year));
+    }
 }
