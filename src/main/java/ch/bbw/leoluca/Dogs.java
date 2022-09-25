@@ -1,24 +1,16 @@
 package ch.bbw.leoluca;
 
+import javax.persistence.*;
 
-import org.hibernate.annotations.Generated;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity (name = "owners")
-public class DogOwners {
-    //Separate ID is needed because halter_id is not unique
+@Entity(name = "dogs")
+/*
+@SecondaryTable(name = "owners", pkJoinColumns = @PrimaryKeyJoinColumn(name = "halter_id"))
+*/
+public class Dogs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long halter_id;
-    private String alter;
-    private String geschlecht;
-    private int stadtkreis;
-    private int stadtquartier;
     private String rasse1;
     private String rasse1_mischling;
     private String rasse2;
@@ -28,24 +20,16 @@ public class DogOwners {
     private String geschlecht_hund;
     private String hundefarbe;
 
-    public DogOwners(Long halter_id, String alter, String geschlecht, int stadtkreis, int stadtquartier, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
-        this.halter_id = halter_id;
-        this.alter = alter;
-        this.geschlecht = geschlecht;
-        this.stadtkreis = stadtkreis;
-        this.stadtquartier = stadtquartier;
-        this.rasse1 = rasse1;
-        this.rasse1_mischling = rasse1_mischling;
-        this.rasse2 = rasse2;
-        this.rasse2_mischling = rasse2_mischling;
-        this.rassentyp = rassentyp;
-        this.geburtsjahr_hund = geburtsjahr_hund;
-        this.geschlecht_hund = geschlecht_hund;
-        this.hundefarbe = hundefarbe;
+    public Dogs() {
+
     }
 
-    public DogOwners() {
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getHalter_id() {
@@ -54,38 +38,6 @@ public class DogOwners {
 
     public void setHalter_id(Long halter_id) {
         this.halter_id = halter_id;
-    }
-
-    public String getAlter() {
-        return alter;
-    }
-
-    public void setAlter(String alter) {
-        this.alter = alter;
-    }
-
-    public String getGeschlecht() {
-        return geschlecht;
-    }
-
-    public void setGeschlecht(String geschlecht) {
-        this.geschlecht = geschlecht;
-    }
-
-    public int getStadtkreis() {
-        return stadtkreis;
-    }
-
-    public void setStadtkreis(int stadtkreis) {
-        this.stadtkreis = stadtkreis;
-    }
-
-    public int getStadtquartier() {
-        return stadtquartier;
-    }
-
-    public void setStadtquartier(int stadtquartier) {
-        this.stadtquartier = stadtquartier;
     }
 
     public String getRasse1() {
@@ -149,6 +101,19 @@ public class DogOwners {
     }
 
     public void setHundefarbe(String hundefarbe) {
+        this.hundefarbe = hundefarbe;
+    }
+
+    public Dogs(Long id, Long halter_id, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
+        this.id = id;
+        this.halter_id = halter_id;
+        this.rasse1 = rasse1;
+        this.rasse1_mischling = rasse1_mischling;
+        this.rasse2 = rasse2;
+        this.rasse2_mischling = rasse2_mischling;
+        this.rassentyp = rassentyp;
+        this.geburtsjahr_hund = geburtsjahr_hund;
+        this.geschlecht_hund = geschlecht_hund;
         this.hundefarbe = hundefarbe;
     }
 }
