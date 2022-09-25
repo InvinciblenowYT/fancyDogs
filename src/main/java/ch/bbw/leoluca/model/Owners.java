@@ -1,4 +1,4 @@
-package ch.bbw.leoluca;
+package ch.bbw.leoluca.model;
 import javax.persistence.*;
 
 @Entity (name = "owners")
