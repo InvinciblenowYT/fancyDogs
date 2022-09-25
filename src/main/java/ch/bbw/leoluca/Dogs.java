@@ -10,7 +10,10 @@ public class Dogs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long halter_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "halter_id")
+    private Owners owners;
     private String rasse1;
     private String rasse1_mischling;
     private String rasse2;
@@ -32,12 +35,12 @@ public class Dogs {
         this.id = id;
     }
 
-    public Long getHalter_id() {
-        return halter_id;
+    public Owners getOwners() {
+        return owners;
     }
 
-    public void setHalter_id(Long halter_id) {
-        this.halter_id = halter_id;
+    public void setOwners(Owners owners) {
+        this.owners = owners;
     }
 
     public String getRasse1() {
@@ -104,9 +107,9 @@ public class Dogs {
         this.hundefarbe = hundefarbe;
     }
 
-    public Dogs(Long id, Long halter_id, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
+    public Dogs(Long id, Owners owners, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
         this.id = id;
-        this.halter_id = halter_id;
+        this.owners = owners;
         this.rasse1 = rasse1;
         this.rasse1_mischling = rasse1_mischling;
         this.rasse2 = rasse2;
