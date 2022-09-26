@@ -3,9 +3,6 @@ package ch.bbw.leoluca.model;
 import javax.persistence.*;
 
 @Entity(name = "dogs")
-/*
-@SecondaryTable(name = "owners", pkJoinColumns = @PrimaryKeyJoinColumn(name = "halter_id"))
-*/
 public class Dogs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +16,8 @@ public class Dogs {
     private String rasse2;
     private String rasse2_mischling;
     private String rassentyp;
-    private int geburtsjahr_hund;
-    private String geschlecht_hund;
+    private int geburtsjahr;
+    private String geschlecht;
     private String hundefarbe;
 
     public Dogs() {
@@ -83,20 +80,20 @@ public class Dogs {
         this.rassentyp = rassentyp;
     }
 
-    public int getGeburtsjahr_hund() {
-        return geburtsjahr_hund;
+    public int getGeburtsjahr() {
+        return geburtsjahr;
     }
 
-    public void setGeburtsjahr_hund(int geburtsjahr_hund) {
-        this.geburtsjahr_hund = geburtsjahr_hund;
+    public void setGeburtsjahr(int geburtsjahr_hund) {
+        this.geburtsjahr = geburtsjahr_hund;
     }
 
-    public String getGeschlecht_hund() {
-        return geschlecht_hund;
+    public String getGeschlecht() {
+        return geschlecht;
     }
 
-    public void setGeschlecht_hund(String geschlecht_hund) {
-        this.geschlecht_hund = geschlecht_hund;
+    public void setGeschlecht(String geschlecht_hund) {
+        this.geschlecht = geschlecht_hund;
     }
 
     public String getHundefarbe() {
@@ -107,7 +104,7 @@ public class Dogs {
         this.hundefarbe = hundefarbe;
     }
 
-    public Dogs(Long id, Owners owners, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr_hund, String geschlecht_hund, String hundefarbe) {
+    public Dogs(Long id, Owners owners, String rasse1, String rasse1_mischling, String rasse2, String rasse2_mischling, String rassentyp, int geburtsjahr, String geschlecht, String hundefarbe) {
         this.id = id;
         this.owners = owners;
         this.rasse1 = rasse1;
@@ -115,8 +112,8 @@ public class Dogs {
         this.rasse2 = rasse2;
         this.rasse2_mischling = rasse2_mischling;
         this.rassentyp = rassentyp;
-        this.geburtsjahr_hund = geburtsjahr_hund;
-        this.geschlecht_hund = geschlecht_hund;
+        this.geburtsjahr = geburtsjahr;
+        this.geschlecht = geschlecht;
         this.hundefarbe = hundefarbe;
     }
 }
