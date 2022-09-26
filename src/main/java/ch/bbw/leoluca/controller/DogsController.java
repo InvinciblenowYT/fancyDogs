@@ -29,6 +29,11 @@ public class DogsController {
         return dogsRepository.dogsByColourAndDistrict(colour, Integer.parseInt(district));
     }
 
+    @GetMapping("/dogs/samesex")
+    List<Dogs> getDogsWithSameSexLikeOwner(){
+        return dogsRepository.findDogsWithSameSexLikeOwner();
+    }
+
     @GetMapping("/dogs/colour={colour}+page={page}")
     List<Dogs> getPagedDogsByColour(@PathVariable("colour") String colour, @PathVariable("page") String page) {
         return dogsRepository.findAllByHundefarbe(colour, PageRequest.of(Integer.parseInt(page), 10));
@@ -36,7 +41,7 @@ public class DogsController {
 
     @GetMapping("/dogs/year={year}")
     List<Dogs> DogsByYear(@PathVariable("year") String year){
-        return dogsRepository.dogsByYear(Integer.parseInt(year));
+        return dogsRepository.findDogsByGeburtsjahrHund(Integer.parseInt(year));
     }
 
     @GetMapping("/dogs/dogsex={dogsex}")
