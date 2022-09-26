@@ -39,31 +39,23 @@ public class DogsController {
         return dogsRepository.findAllByHundefarbe(colour, PageRequest.of(Integer.parseInt(page), 10));
     }
 
-    @GetMapping("/dogs/year={year}")
-    List<Dogs> DogsByYear(@PathVariable("year") String year){
-        return dogsRepository.findDogsByGeburtsjahrHund(Integer.parseInt(year));
-    }
-
     @GetMapping("/dogs/dogsex={dogsex}")
     List<Dogs> DogsBySex(@PathVariable("dogsex") String sex){
-        return dogsRepository.dogsBySex(sex);
+        return dogsRepository.findDogsByGeschlecht(sex);
     }
 
     @GetMapping("/dogs/ownergender={ownergender}")
     List<Dogs> DogsByOwnerGender(@PathVariable("ownergender") String gender){
-        return dogsRepository.dogsByOwnerGender(gender);
+        return dogsRepository.findDogsByOwnerGender(gender);
     }
 
     @GetMapping("/dogs/bornbefore={year}")
     List<Dogs> DogBornBefore(@PathVariable("year") String year){
-        return dogsRepository.dogsBornBefore(Integer.parseInt(year));
+        return dogsRepository.findDogsByGeburtsjahrBefore(Integer.parseInt(year));
     }
 
     @DeleteMapping("/delete/id={id}")
     List<Dogs> DeleteDogsById(@PathVariable("id") String id){
         return dogsRepository.deleteDogsById(Long.parseLong(id));
     }
-
-
-
 }
