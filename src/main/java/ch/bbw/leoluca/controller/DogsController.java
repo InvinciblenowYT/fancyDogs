@@ -13,11 +13,7 @@ import java.util.List;
 @RestController
 public class DogsController {
     @Autowired
-    private final DogsRepository dogsRepository;
-
-    public DogsController(DogsRepository dogsRepository) {
-        this.dogsRepository = dogsRepository;
-    }
+    private DogsRepository dogsRepository;
 
     @GetMapping("/dogs")
     List<Dogs> all() {
