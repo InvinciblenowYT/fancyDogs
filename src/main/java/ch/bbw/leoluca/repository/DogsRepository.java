@@ -21,14 +21,16 @@ public interface DogsRepository extends JpaRepository<Dogs, Integer> {
     @Transactional
     List<Dogs> deleteDogsById(Long id);
 
-    //TODO Join
+    //Join
+    @Query("SELECT d FROM dogs d JOIN d.owners o WHERE d.geschlecht_hund = o.geschlecht")
+    List<Dogs> findDogsWithSameSexLikeOwner();
+
+
 
     //TODO complicated select
 
-
-
-    @Query("SELECT d FROM dogs d WHERE d.geburtsjahr_hund = :year")
-    List<Dogs>dogsByYear(@Param("year") Integer year);
+//    @Query("SELECT d FROM dogs d WHERE d.geburtsjahr_hund = :year")
+    List<Dogs> findDogsByGeburtsjahrHund(Integer year);
 
     @Query("SELECT d FROM dogs d WHERE d.geschlecht_hund = :sex")
     List<Dogs> dogsBySex(@Param("sex") String sex);
