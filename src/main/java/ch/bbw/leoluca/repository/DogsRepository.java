@@ -1,29 +1,31 @@
 package ch.bbw.leoluca.repository;
 
 import ch.bbw.leoluca.model.Dogs;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface DogsRepository extends JpaRepository<Dogs, Integer> {
 
-    // Select with 2 wheres
+    //Select with 2 wheres
+    @Query("SELECT d FROM dogs d WHERE d.hundefarbe = :colour and d.owners.stadtkreis = :district")
+    List<Dogs>dogsByColourAndDistrict(@Param("colour") String colour, @Param("district") Integer district);
 
-    @Query();
+    // Select with Paging (spring paging)
+    List<Dogs> findAllByHundefarbe(String farbe, Pageable pageable);
 
-    // Select with Limit (spring paging)
-
-    @Query(value = "SELECT d FROM dogs d limit ?1, ?2", nativeQuery = true)
-    List<Dogs> findDogs(int offset, int limit);
-
-    // Page<Dogs> allDogs =
     // Delete with where
+    @Transactional
+    List<Dogs> deleteDogsById(Long id);
 
-    // Join
+    //TODO Join
 
-    // complicated select
+    //TODO complicated select
+
+
 
     @Query("SELECT d FROM dogs d WHERE d.geburtsjahr_hund = :year")
     List<Dogs>dogsByYear(@Param("year") Integer year);
